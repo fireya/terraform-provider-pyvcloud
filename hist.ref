@@ -289,14 +289,442 @@
   289  ls -lrta
   290  vi ~/.bash_profile 
   291  exit
-  292  cd /home/
-  293  cd terraform-provider-pyvcloud/
-  294  ls
-  295  cd plugin-python/
-  296  python plugin.py 
-  297  pip install 
-  298  pip install grpc_health.v1.health
-  299  pip install grpc_health
-  300  pip install grpcio_health_checking
-  301  python plugin.py 
-  302  history >> /home/hist.ref
+  292  protoc-gen-go
+  293  cd /root/go/bin/
+  294  cd /home
+  295  cd terraform-provider-pyvcloud/
+  296  ls
+  297  protoc -I proto/ proto/pyvcloudprovider.proto --go_out=plugins=grpc:proto/
+  298  ls
+  299  cd pro
+  300  ls pro
+  301  ls proto/
+  302  cat proto/pyvcloudprovider.pb.go 
+  303  cd ..
+  304  cd terraform-provider-pyvcloud/
+  305  git add proto/
+  306  git commit -m proto
+  307  git push origin master
+  308  python -m grpc_tools.protoc -I ./proto/ --python_out=./plugin-python/ --grpc_python_out=./plugin-python/ ./proto/pyvcloudprovider.proto
+  309  mkdir plugin-python
+  310  python -m grpc_tools.protoc -I ./proto/ --python_out=./plugin-python/ --grpc_python_out=./plugin-python/ ./proto/pyvcloudprovider.proto
+  311  ls plugin-python/
+  312  git add plugin-python/
+  313  git commit -m pluginpython interface gen
+  314  git commit -m 'pluginpython interface gen'
+  315  git push origin master
+  316  ls
+  317  cd plugin-python/
+  318  ls
+  319  cat pyvcloudprovider_pb2
+  320  cat pyvcloudprovider_pb2.py 
+  321  ls
+  322  cat pyvcloudprovider_pb2_grpc.py 
+  323  ls
+  324  plugin.py
+  325  vim plugin.py
+  326  python plugin.py 
+  327  history | grep pip
+  328  pip install --user  grpc_health
+  329  pip install --user  grpc_health.v1
+  330  cd /home/
+  331  cd terraform-provider-pyvcloud/
+  332  ls
+  333  cd plugin-python/
+  334  python plugin.py 
+  335  pip install 
+  336  pip install grpc_health.v1.health
+  337  pip install grpc_health
+  338  pip install grpcio_health_checking
+  339  python plugin.py 
+  340  history >> /home/hist.ref
+  341  cd /home
+  342  ls
+  343  cat hist.ref 
+  344  cp hist.ref terraform-provider-pyvcloud/
+  345  cd terraform-provider-pyvcloud/
+  346  git add hist.ref 
+  347  git commit -m hist
+  348  git push origin master
+  349  cd /home/terraform-provider-pyvcloud/plugin-python/
+  350  python plugin.py 
+  351  ls
+  352  cd ..
+  353  ls
+  354  cd pro
+  355  cd proto/
+  356  ls
+  357  cat pyvcloudprovider.pb.go 
+  358  ls
+  359  cd ..
+  360  ls
+  361  mkdir goclient
+  362  cd goclient/
+  363  cd ..
+  364  cat main.
+  365  cat main.go 
+  366  cd goclient/
+  367  ls
+  368  vim main.go
+  369  ls
+  370  pwd
+  371  ifconfig
+  372  nslookup 10.112.82.164
+  373  yum install -y bind-utils
+  374  nslookup 10.112.82.164
+  375  arp 
+  376  mkdir shared
+  377  cd shared/
+  378  vim grpc.go
+  379  pwd
+  380  ls ..l..l
+  381  ls ../../
+  382  ls ../../proto
+  383  vim grpc.go
+  384  pwd
+  385  cd ..
+  386  ls
+  387  go build shared/
+  388  ls
+  389  history  | grep build
+  390  go build -i shared/
+  391  ls
+  392  ls shared/
+  393  ls
+  394  cd share
+  395  cd shared
+  396  go build
+  397  ls
+  398  go build
+  399  get get grpc
+  400  go get grpc
+  401  cat ../../proto/pyvcloudprovider.pb.go 
+  402  go build
+  403  go get golang.org/x/net/context
+  404  go build
+  405  go install golang.org/x/net/context
+  406  go build
+  407  go get google.golang.org/grpc
+  408  go install google.golang.org/grpc
+  409  go build
+  410  ls
+  411  ls ../../
+  412  ls ../../p
+  413  ls ../../pro
+  414  ls ../../proto
+  415  ls
+  416  vim grpc.go 
+  417  go build
+  418  vim grpc.go 
+  419  go build
+  420  cat grpc.go 
+  421  cd ..
+  422  git add shared/
+  423  git commit -m client
+  424  git push origin master
+  425  cd ..
+  426  ls
+  427  git add goclient/
+  428  git commit -m goclient
+  429  git add plugin-python/
+  430  git commit -m plugin
+  431  git push origin master
+  432  cd goclient/
+  433  ls
+  434  cd ..
+  435  git add goclient/
+  436  git commit -m gl
+  437  ld
+  438  cd goclient/
+  439  ls
+  440  vi readmet.txt
+  441  git add readmet.txt 
+  442  cd ..
+  443  git commit -m read
+  444  git push origin master
+  445  ls
+  446  cd goclient/
+  447  ls
+  448  cd /home/terraform-provider-pyvcloud/
+  449  ls
+  450  cd goclient/
+  451  ls
+  452  ls shared/
+  453  vim main.go
+  454  cd shared/
+  455  ls
+  456  vim grpc.go 
+  457  ls ../../
+  458  ls ../../proto
+  459  vim ../../proto/pyvcloudprovider.pb.go 
+  460  cat grpc.go 
+  461  vim interface.go
+  462  go build
+  463  vim interface.go
+  464  go build
+  465  vim interface.go
+  466  go build
+  467  go get github.com/hashicorp/go-plugin
+  468  go install github.com/hashicorp/go-plugin
+  469  go build
+  470  ls
+  471  rm interface.go 
+  472  vim interface.go
+  473  go bu
+  474  go build
+  475  vim interface.go
+  476  go build
+  477  vim interface.go
+  478  go build
+  479  cat grpc.go 
+  480  cat interface.go 
+  481  vim interface.go 
+  482  go build
+  483  vim interface.go 
+  484  go build
+  485  vim interface.go 
+  486  go get github.com/hashicorp/go-plugin
+  487  go install github.com/hashicorp/go-plugin
+  488  vim interface.go 
+  489  go build
+  490  cd ..
+  491  go bu
+  492  go build
+  493  cd..
+  494  ls
+  495  cd ..
+  496   cd goclient/
+  497  go build
+  498  vim shared/rpc.go
+  499  go build
+  500  touch shared/rpc.go
+  501  vim shared/rpc.go
+  502  go build
+  503  ls
+  504  cat main.go 
+  505  ls
+  506  go build main.go 
+  507  rm main.go
+  508  vim main.go
+  509  go build
+  510  ls
+  511  go build -o loginclient
+  512  ls
+  513  ls shared/
+  514  go build -o loginclient shared
+  515  go build -o login
+  516  ll
+  517  login
+  518  find / -name loging
+  519  find / -name login
+  520  go build -o loginvcd
+  521  cd /home/terraform-provider-pyvcloud/goclient/
+  522  go build -o loginvcd
+  523  ls
+  524  vim shared/interface.go 
+  525  go build -o loginvcd
+  526  vim main.go 
+  527  go build -o loginvcd
+  528  vi shared/interface.go 
+  529  go build -o loginvcd
+  530  cd shared/
+  531  go build 
+  532  cd ..
+  533  go build -o loginvcd
+  534  ls
+  535  vim main.go 
+  536  go build -o loginvcd
+  537  vim main.go 
+  538  vi shared/interface.go 
+  539  go build -o loginvcd
+  540  cd shared/
+  541  go buils
+  542  go build
+  543  vim shared/interface.go 
+  544  cd ..
+  545  vim shared/interface.go 
+  546  go build
+  547  ls
+  548  vim main.go 
+  549  go build
+  550  vim main.go 
+  551  go build
+  552  vim main.go 
+  553  go build
+  554  ls
+  555  ./goclient
+  556  export PY_PLUGIN="python plugin-python/plugin.py"
+  557  ./goclient
+  558  ls
+  559  cd ..
+  560  ls
+  561  cd goclient/
+  562  cd ..
+  563  cd plugin-python/
+  564  pwd
+  565  export PY_PLUGIN="python /home/terraform-provider-pyvcloud/plugin-python"
+  566  cd ..
+  567  cd goclient/
+  568  ./goclient 
+  569  export PY_PLUGIN="python /home/terraform-provider-pyvcloud/plugin-python/plugin.py"
+  570  ./goclient 
+  571  echo 'export PY_PLUGIN="python /home/terraform-provider-pyvcloud/plugin-python/plugin.py"' >> ~/exp.sh
+  572  ls `
+  573  ls ~
+  574  ./goclient 
+  575  ps
+  576  kill 55131
+  577  kill 55147
+  578  ps
+  579  kill 55114
+  580  ls
+  581  ps
+  582  kill 55162
+  583  kill 55177
+  584  ls
+  585  ps
+  586  ./goclient 
+  587  ps
+  588  kill 55198
+  589  vim shared/interface.go 
+  590  go build
+  591  vim shared/interface.go 
+  592  go build
+  593  cd ..
+  594  cd proto
+  595  ls
+  596  go build
+  597  ls
+  598  cd ../goclient/
+  599  go build
+  600  vim shared/interface.go 
+  601  go build
+  602  vim shared/interface.go 
+  603  go build
+  604  vim shared/interface.go 
+  605  go build
+  606  ls
+  607  vim shared/grpc.go 
+  608  go build
+  609  vim shared/grpc.go 
+  610  go build
+  611  ps
+  612  ./goclient 
+  613  ps
+  614  ls
+  615  vim shared/interface.go 
+  616  rm shared/grpc.go 
+  617  vim shared/grpc.go
+  618  go build
+  619  vim shared/grpc.go
+  620  go build
+  621  ./goclient 
+  622  cd ..
+  623  ls
+  624  git add goclient/
+  625  git commit -m goclient
+  626  ls
+  627  ls goclient/
+  628  git push origin master
+  629  ls
+  630  cd ..
+  631  git add terraform-provider-pyvcloud/
+  632  cd terraform-provider-pyvcloud/
+  633  ls
+  634  git add .
+  635  git commit -m ad
+  636  ls
+  637  cat main.
+  638  cat main.go 
+  639  ls
+  640  vim plugin-python/plugin.py 
+  641  ls
+  642  cd goclient/
+  643  ./goclient 
+  644  vim ../plugin-python/plugin.py 
+  645  ./goclient 
+  646  vim ../plugin-python/plugin.py 
+  647  ./goclient 
+  648  ls
+  649  cd ..
+  650  git add plugin-python/
+  651  git commit -m plugin
+  652  git push origin master
+  653  pwd
+  654  exit
+  655  python /home/terraform-provider-pyvcloud/plugin-python/plugin.py 
+  656  history | grep export
+  657  vi ~/.bash_profile 
+  658  cp ~/.bash_profile /home/terraform-provider-pyvcloud/
+  659  cd /home/terraform-provider-pyvcloud/
+  660  ls
+  661  git add .bash_profile 
+  662  git commit -m bashprof
+  663  git push origin master
+  664  exit
+  665  ls
+  666  cd /home/terraform-provider-pyvcloud/
+  667  ls
+  668  cd goclient/
+  669  ls
+  670  goclient
+  671  ./goclient 
+  672  history | grep 'go build'
+  673  l
+  674  scdc..
+  675  ls
+  676  cd ..
+  677  ls
+  678  vim resource_server.go 
+  679  vim ~/.vimrc
+  680  vim resource_server.go 
+  681  exit
+  682  cd /home/terraform-provider-pyvcloud/
+  683  vim resource_server.go 
+  684  vim ~/.vimrc
+  685  vim resource_server.go 
+  686  exit
+  687  cd /home/terraform-provider-pyvcloud/
+  688  vim resource_server.go 
+  689  vim ~/.vimrc
+  690  vim resource_server.go 
+  691  exit
+  692  vim resource_server.go 
+  693  cd /home/terraform-provider-pyvcloud/
+  694  vim resource_server.go 
+  695  vim ~/.vimrc
+  696  exit
+  697  cd /home/terraform-provider-pyvcloud/
+  698  vim resource_server.go 
+  699  yum install vim-go
+  700  go
+  701  go -version
+  702  go -V
+  703  go version
+  704  find / -name go
+  705  ls
+  706  cd goclient/
+  707  ./goclien
+  708  ./goclient 
+  709  ls
+  710  /opt/go/bin/go version
+  711  go version
+  712  path
+  713  which go
+  714  vi ~/.bash_profile 
+  715  exit
+  716  which go
+  717  ls
+  718  cd /home/terraform-provider-pyvcloud/
+  719  ls
+  720  vim resource_server.go 
+  721  vim ~/.vimrc
+  722  cp ~/.bash_profile /home/terraform-provider-pyvcloud/
+  723  git commit -m upd
+  724  git push origin master
+  725  git add .bash_profile 
+  726  git commit -m upd
+  727  git push origin master
+  728  ls
+  729  history >> hist.ref 
+  730  history > hist.ref 
