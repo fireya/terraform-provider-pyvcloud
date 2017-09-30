@@ -1,0 +1,29 @@
+
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.vmware.pyvcloud.provider";
+option java_outer_classname = "PyVcloudProviderProto";
+
+package pyvcloudprovider;
+
+// Interface exported by the server.
+service PyVcloudProvider {
+//Tenant Loging to VCD  
+  rpc Login(TenantCredentials) returns (LoginResult) {}
+
+  
+}
+
+//Tenant VCD crendentials
+message TenantCredentials {
+  string username = 1;
+  string password = 2;
+  string org = 3;
+
+}
+
+message LoginResult{
+	string token = 1;
+}
