@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+//import "fmt"
 
 //import "os"
 
@@ -19,7 +19,6 @@ func Provider() *schema.Provider {
 
 func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 
-	fmt.Printf(" in Provider go lang")
 	config := vcd.Config{
 		User:     d.Get("username").(string),
 		Password: d.Get("password").(string),

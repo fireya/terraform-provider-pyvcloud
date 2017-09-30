@@ -30,4 +30,4 @@ def vcdlogin(  host, user, password, org):
 
 
 if __name__ == '__main__':
-    vcdlogin("user1","10.112.83.27","Admin!23","O1");
+    vcdlogin("10.112.83.27","user1","Admin!23","O1");
