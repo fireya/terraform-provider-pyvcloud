@@ -1,0 +1,302 @@
+    1  yum install ntp ntpdate ntp-doc -y
+    2  vi /etc/ntp.conf 
+    3  chkconfig firewalld off
+    4  chkconfig ntpd on
+    5  systemctl disable chronyd
+    6  systemctl start ntpd
+    7  systemctl enable ntpd
+    8  ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+    9  timedatectl set-timezone UTC
+   10  systemctl disable firewalld
+   11  systemctl stop firewalld
+   12  timedatectl set-timezone UTC
+   13  systemctl status firewalld
+   14  systemctl status ntpd
+   15  date
+   16  watch -n 1 date
+   17  hostname worker_terra
+   18  hostname worker
+   19  exit
+   20  10.112.82.164
+   21  yum install scl-utils
+   22  wget https://www.softwarecollections.org/en/scls/rhscl/python33/epel-7-x86_64/download/rhscl-python33-epel-7-x86_64.noarch.rpm
+   23  yum install -y wget
+   24  wget https://www.softwarecollections.org/en/scls/rhscl/python33/epel-7-x86_64/download/rhscl-python33-epel-7-x86_64.noarch.rpm
+   25  yum install rhscl-python33-*.noarch.rpm
+   26  wget https://www.softwarecollections.org/en/scls/rhscl/python33/epel-7-x86_64/download/rhscl-python33-epel-7-x86_64.noarch.rpm
+   27  yum install epel-release -y
+   28                                                                                                                                                      yum 
+   29  yum install python37
+   30  yum install python36
+   31  yum install python35
+   32  yum install python34
+   33  python3
+   34  python
+   35  pip install --user pyvcloud
+   36  yum install python-pip
+   37  yum install python3-pip
+   38  python3 get-pip.py
+   39  ls
+   40  wget https://bootstrap.pypa.io/get-pip.py
+   41  python3 get-pip.py
+   42  pip -v
+   43  pip -V
+   44  pip install --user pyvcloud
+   45  cdc /home
+   46  cd /home
+   47  mkdir pydemo
+   48  cd pydemo/
+   49  wget https://github.com/vmware/pyvcloud/blob/master/examples/create_vm.py
+   50  ls
+   51  python3 create_vm.py 
+   52  python create_vm.py 
+   53  cat create_vm.py 
+   54  wget https://raw.githubusercontent.com/vmware/pyvcloud/master/examples/create_vm.py
+   55  python create_vm.py 
+   56  ls
+   57  rm create_vm.py*
+   58  wget https://raw.githubusercontent.com/vmware/pyvcloud/master/examples/create_vm.py
+   59  python3 create_vm.py 
+   60  wget https://raw.githubusercontent.com/vmware/pyvcloud/master/tests/vcd_login.py
+   61  ls
+   62  python3 vcd_login.py 
+   63  wget https://raw.githubusercontent.com/vmware/pyvcloud/master/tests/config.yml
+   64  python3 vcd_login.py 
+   65  vi config.yml 
+   66  python3 vcd_login.py 
+   67  vi config.yml 
+   68  python3 vcd_login.py 
+   69  vi login.py
+   70  python3 login.py 
+   71  pip install --user StringIO
+   72  python3 login.py 
+   73  cat /root/.local/lib/python3.4/site-packages/pyvcloud/vcloudair.py
+   74  yum remove pip
+   75  yum remove python3
+   76  history | grep python
+   77  yum remove python34
+   78  yum install python27
+   79  yum install python
+   80  ls
+   81  cd ~
+   82  ls
+   83  python get-pip.py 
+   84  pip install --user pyvcloud
+   85  cd /home/pydemo/
+   86  python login.py 
+   87  pip install fabric
+   88  python login.py 
+   89  history >> hist.txt
+   90  ls
+   91  cat hist.txt 
+   92  cat login.py 
+   93  ls
+   94  python vcd_login.py 
+   95  vi login.py 
+   96  python vcd_login.py 
+   97  python login.py 
+   98  vim login.py 
+   99  yum install -y vim
+  100  vim login.py 
+  101  python login.py 
+  102  vim login.py 
+  103  python login.py 
+  104  exit
+  105  ls
+  106  cd /home
+  107  ls
+  108  mv vcdgrpc/ terraform-provider-pyvcloud
+  109  ls
+  110  cd terraform-provider-pyvcloud/
+  111  ls
+  112  cat provider.go 
+  113  cat resource_server.go 
+  114  cd /opt
+  115   wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
+  116  ls
+  117  tar -xvf go1.9.linux-amd64.tar.gz 
+  118  vi ~/.bash_profile 
+  119  go
+  120  exit
+  121  go
+  122  cd wget \  wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip?_ga=2.147444209.791918856.1506534060-1569824955.1502863822
+  123  cd /opt
+  124    wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip?_ga=2.147444209.791918856.1506534060-1569824955.1502863822
+  125  ls
+  126  mv terraform_0.10.6_linux_amd64.zip\?_ga\=2.147444209.791918856.1506534060-1569824955.1502863822 terr.zip
+  127  yum install unzip
+  128  unzip terr.zip 
+  129  ls
+  130  vi ~/.bash_profile 
+  131  terraform
+  132  cd /home
+  133  ls
+  134  cd terraform-provider-pyvcloud/
+  135  ls
+  136  yum install git -y
+  137  echo "# terraform-provider-pyvcloud" >> README.md
+  138  git init
+  139  git add README.mdgit add README.md
+  140  git commit -m "first commit"
+  141  git add README.md
+  142  git commit -m "first commit"
+  143   git config --global user.email "sri.narayanan.t@gmail.com"
+  144   git config --global user.name "sri.narayanan"
+  145  git commit -m "first commit"
+  146  git remote add origin git@github.com:srinarayanant/terraform-provider-pyvcloud.git
+  147  git push -u origin master
+  148  ssh-keygen
+  149  cat /root/.ssh/id_rsa_p
+  150  cat /root/.ssh/id_rsa.pubp
+  151  cat /root/.ssh/id_rsa.pub
+  152  git push -u origin master
+  153  ls
+  154  git add *
+  155  git commit -m "scrap1"
+  156  git push -u origin master
+  157  ls
+  158  terraform pl
+  159  terraform init
+  160  terraform plan
+  161  terraform apply
+  162  ls
+  163  cat resource_server.go 
+  164  ls
+  165  cat provider.go 
+  166  cat main.tf 
+  167  ls
+  168  pip
+  169  pip -version
+  170  pip -v
+  171  pip -C
+  172  pip -V
+  173  pip install grpcio
+  174  pip install grpcio-tools
+  175  cd /home
+  176  git clone -b v1.6.x https://github.com/grpc/grpc
+  177  cd grpc/examples/python/helloworld
+  178  ls
+  179  python greeter_server.py &
+  180  python greeter_client.py 
+  181  cat greeter_ss
+  182  cat greeter_server.py 
+  183  yum install -y vim
+  184  vim greeter_server.py 
+  185  !
+  186  ls
+  187  pwd
+  188  cd ..
+  189  ls
+  190  cd ..
+  191  ls
+  192  cd protos/p
+  193  ls
+  194  cd protos/
+  195  ls
+  196  vim helloworld.proto 
+  197  python -m grpc_tools.protoc -I../../protos --python_out=. --grpc_python_out=. ../../protos/helloworld.proto
+  198  cd ..
+  199  ls
+  200  cd ..
+  201  cd examples/python/helloworld
+  202  python -m grpc_tools.protoc -I../../protos --python_out=. --grpc_python_out=. ../../protos/helloworld.proto
+  203  ls
+  204  vim greeter_server.py 
+  205  vim greeter_client.py 
+  206  python greeter_server.py
+  207  ps
+  208  kill -9 32250
+  209  python greeter_server.py
+  210  python greeter_server.py &
+  211  python greeter_client.py 
+  212  kill -9 32367
+  213  vim greeter_client.py 
+  214  vim greeter_server.py 
+  215  find / -name helloworld_pb2
+  216  vim ../../protos/helloworld.proto
+  217  python -m
+  218  puthon --help
+  219  python --help
+  220  cd /home
+  221  ls
+  222  cd terraform-provider-pyvcloud/
+  223  ls
+  224  mkdir proto
+  225  cd proto/
+  226  vi pyvcloudprovider.proto
+  227  cd ..
+  228  protoc -I proto/ proto/pyvcloudprovider.proto --go_out=plugins=grpc:proto/
+  229  yum install autoconf automake libtool unzip gcc-c++ git -y
+  230  cd /home
+  231  cd /opt
+  232  git clone https://github.com/google/protobuf.git
+  233  cd protobuf
+  234  ./autogen.sh
+  235  ./configure
+  236  make
+  237  proto
+  238  protoc
+  239  ls /opt/protobuf/
+  240  find / -name protoc
+  241  ls src/
+  242  /opt/protobuf/src/protoc
+  243  ls
+  244  vi ~/.bash_profile 
+  245  exit
+  246  cd /home/
+  247  ls
+  248  cd terraform-provider-pyvcloud/
+  249  s
+  250  ls
+  251  protoc -I proto/ proto/pyvcloudprovider.proto --go_out=plugins=grpc:proto/
+  252  /opt/protobuf/src/protoc
+  253  vi ~/.bash_profile 
+  254  exit
+  255  cd /home
+  256  protocs
+  257  protoc
+  258  cd terraform-provider-pyvcloud/
+  259  protoc -I proto/ proto/pyvcloudprovider.proto --go_out=plugins=grpc:proto/
+  260  vim proto/pyvcloudprovider.proto 
+  261  protoc -I proto/ proto/pyvcloudprovider.proto --go_out=plugins=grpc:proto/
+  262  vim proto/pyvcloudprovider.proto 
+  263  protoc -I proto/ proto/pyvcloudprovider.proto --go_out=plugins=grpc:proto/
+  264  vi ~/.bash_profile 
+  265  go install github.com/golang/protobuf/protoc-gen-go
+  266  go get github.com/golang/protobuf/protoc-gen-go
+  267  go install github.com/golang/protobuf/protoc-gen-go
+  268  protoc -I proto/ proto/pyvcloudprovider.proto --go_out=plugins=grpc:proto/
+  269  protoc --version
+  270  echo $GOROOT 
+  271  go get -u github.com/golang/protobuf/protoc-gen-go
+  272  ls /opt/go
+  273  ls /opt/go/bin/
+  274  ls /opt/gog
+  275  ls /opt/go/bin
+  276  vi ~/.bash_profile 
+  277  echo $GOPATH
+  278  cd /opt/go
+  279  ls
+  280  find / -name *protoc*
+  281  exit
+  282  cd /home/terraform-provider-pyvcloud/
+  283  go get -u github.com/golang/protobuf/protoc-gen-go
+  284  protoc -I proto/ proto/pyvcloudprovider.proto --go_out=plugins=grpc:proto/
+  285  protoc-gen-go
+  286  find / -name protoc-gen-go
+  287  cd /root/go/bin/
+  288  ls
+  289  ls -lrta
+  290  vi ~/.bash_profile 
+  291  exit
+  292  cd /home/
+  293  cd terraform-provider-pyvcloud/
+  294  ls
+  295  cd plugin-python/
+  296  python plugin.py 
+  297  pip install 
+  298  pip install grpc_health.v1.health
+  299  pip install grpc_health
+  300  pip install grpcio_health_checking
+  301  python plugin.py 
+  302  history >> /home/hist.ref
