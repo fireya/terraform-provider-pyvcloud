@@ -17,7 +17,7 @@ func Login() {
 	// We don't want to see the plugin logs.
 	//log.SetOutput(ioutil.Discard)
 	log.SetOutput(os.Stdout)
-	
+	log.Printf(os.Getenv("PY_PLUGIN"))
 
 	// We're a host. Start by launching the plugin process.
 	client := plugin.NewClient(&plugin.ClientConfig{
