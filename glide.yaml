@@ -1,0 +1,17 @@
+package: .
+import:
+- package: github.com/golang/protobuf
+  subpackages:
+  - proto
+- package: github.com/hashicorp/go-plugin
+- package: github.com/hashicorp/terraform
+  version: v0.10.6
+  subpackages:
+  - helper/schema
+  - plugin
+  - terraform
+- package: golang.org/x/net
+  subpackages:
+  - context
+- package: google.golang.org/grpc
+  version: v1.6.0
