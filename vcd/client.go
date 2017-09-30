@@ -2,22 +2,21 @@ package vcd
 
 import (
 	"fmt"
-//	"io/ioutil"
-	"log"
+	//	"io/ioutil"
+	//"log"
 	"os"
 	"os/exec"
 
 	"github.com/hashicorp/go-plugin"
 
 	"../goclient/shared"
-	
 )
 
 func Login() {
 	// We don't want to see the plugin logs.
 	//log.SetOutput(ioutil.Discard)
-	log.SetOutput(os.Stdout)
-	log.Printf(os.Getenv("PY_PLUGIN"))
+	//	log.SetOutput(os.Stdout)
+	//	log.Printf(os.Getenv("PY_PLUGIN"))
 
 	// We're a host. Start by launching the plugin process.
 	client := plugin.NewClient(&plugin.ClientConfig{
@@ -47,7 +46,7 @@ func Login() {
 	// implementation but is in fact over an RPC connection.
 	kv := raw.(shared.PyVcloudProvider)
 
-	result, err := kv.Login("user1","pass","O1")
+	result, err := kv.Login("user1", "Admin!23", "O1")
 
 	if err != nil {
 		fmt.Println("Error:", err.Error())
@@ -56,4 +55,3 @@ func Login() {
 	fmt.Println(string(result.Token))
 
 }
-

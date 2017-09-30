@@ -11,6 +11,8 @@ import pyvcloudprovider_pb2
 from grpc_health.v1.health import HealthServicer
 from grpc_health.v1 import health_pb2, health_pb2_grpc
 
+import login
+
 class PyVcloudProviderServicer(pyvcloudprovider_pb2_grpc.PyVcloudProviderServicer):
     """Implementation of PyVcloudProviderServicer service."""
 
@@ -20,6 +22,7 @@ class PyVcloudProviderServicer(pyvcloudprovider_pb2_grpc.PyVcloudProviderService
 	resp = resp +" "+ request.org + "  hurra!!!"
         result = pyvcloudprovider_pb2.LoginResult()
         result.token = resp
+	login.vcdlogin( '10.112.83.27',request.username,request.password,request.org)
         return result
 
     

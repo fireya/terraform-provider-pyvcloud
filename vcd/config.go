@@ -21,5 +21,6 @@ type VCDClient struct {
 func (c *Config) Client() (*VCDClient, error) {
 
 	vcdclient := &VCDClient{}
+	Login()
 	return vcdclient, nil
 }

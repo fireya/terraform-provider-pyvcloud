@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-//	"io/ioutil"
+	//	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
@@ -10,14 +10,12 @@ import (
 	"github.com/hashicorp/go-plugin"
 
 	"./shared"
-	
 )
 
 func main() {
 	// We don't want to see the plugin logs.
 	//log.SetOutput(ioutil.Discard)
 	log.SetOutput(os.Stdout)
-	
 
 	// We're a host. Start by launching the plugin process.
 	client := plugin.NewClient(&plugin.ClientConfig{
@@ -47,7 +45,7 @@ func main() {
 	// implementation but is in fact over an RPC connection.
 	kv := raw.(shared.PyVcloudProvider)
 
-	result, err := kv.Login("user1","pass","O1")
+	result, err := kv.Login("user1", "Admin!23", "O1")
 
 	if err != nil {
 		fmt.Println("Error:", err.Error())
@@ -56,4 +54,3 @@ func main() {
 	fmt.Println(string(result.Token))
 
 }
-
