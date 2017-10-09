@@ -44,11 +44,11 @@ func resourceServerCreate(d *schema.ResourceData, m interface{}) error {
 	//spew.Dump(vcdClient)
 	//glog.Info("============ glocg ")
 	provider := vcdClient.getProvider()
-	provider.Login("user1", "Admin!23", "O1", "10.112.83.27")
-	res, err := vcdClient.getProvider().IsPresentCatalog("c1")
+	//provider.Login("user1", "Admin!23", "O1", "10.112.83.27")
+	res, err := provider.IsPresentCatalog("c1")
 	fmt.Println(res)
 	fmt.Println(err)
-	return fmt.Errorf("Unable to find edge gateway: %#v", res)
+	//return fmt.Errorf("Unable to find edge gateway: %#v", res)
 	return nil
 }
 

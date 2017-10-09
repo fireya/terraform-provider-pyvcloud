@@ -24,19 +24,13 @@ type Config struct {
 
 type VCDClient struct {
 	*plugin.Client
-	//	*plugin.GRPCClient
+	*plugin.GRPCClient
 }
 
 func (v VCDClient) getProvider() shared.PyVcloudProvider {
 
-	rpcClient, err := v.Client.Client()
-	if err != nil {
-		fmt.Println("Error:", err.Error())
-		os.Exit(1)
-	}
-
 	// Request the plugin
-	raw, err := rpcClient.Dispense("PY_PLUGIN")
+	raw, err := v.GRPCClient.Dispense("PY_PLUGIN")
 	if err != nil {
 		fmt.Println("Error:", err.Error())
 		os.Exit(1)
@@ -60,7 +54,7 @@ func (c Config) CreateClient() (*VCDClient, error) {
 		AllowedProtocols: []plugin.Protocol{
 			plugin.ProtocolNetRPC, plugin.ProtocolGRPC},
 	})
-	defer client.Kill()
+	//defer client.Kill()
 
 	// Connect via RPC
 	rpcClient, err := client.Client()
@@ -88,7 +82,7 @@ func (c Config) CreateClient() (*VCDClient, error) {
 	}
 	fmt.Println(string(result.Token))
 
-	vcdclient := &VCDClient{client}
+	vcdclient := &VCDClient{client, rpcClient.(*plugin.GRPCClient)}
 	return vcdclient, err
 
 }
