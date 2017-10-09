@@ -1,7 +1,6 @@
-package main
+package vcd
 
 import (
-	"./vcd"
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
@@ -30,7 +29,7 @@ func resourceServer() *schema.Resource {
 }
 
 func resourceServerCreate(d *schema.ResourceData, m interface{}) error {
-	config := vcd.Config{
+	/*	config := Config{
 		User:     d.Get("username").(string),
 		Password: d.Get("password").(string),
 		Org:      d.Get("org").(string),
@@ -38,8 +37,8 @@ func resourceServerCreate(d *schema.ResourceData, m interface{}) error {
 		//VDC:             d.Get("vdc").(string),
 		//MaxRetryTimeout: maxRetryTimeout,
 		//InsecureFlag:    d.Get("allow_unverified_ssl").(bool),
-	}
-	config.Client()
+	}*/
+	//config.Client()
 	return nil
 }
 
