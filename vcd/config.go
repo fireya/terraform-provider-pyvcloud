@@ -26,7 +26,7 @@ type VCDClient struct {
 	*plugin.Client
 }
 
-func (c *Config) CreateClient() (*VCDClient, error) {
+func (c Config) CreateClient() (*VCDClient, error) {
 	// We don't want to see the plugin logs.
 	//log.SetOutput(ioutil.Discard)
 	log.SetOutput(os.Stdout)

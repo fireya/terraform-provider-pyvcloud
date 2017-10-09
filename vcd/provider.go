@@ -30,11 +30,11 @@ func Provider() terraform.ResourceProvider {
 				Description: "The vcd org for API operations",
 			},
 
-			"url": &schema.Schema{
+			"ip": &schema.Schema{
 				Type:        schema.TypeString,
 				Required:    true,
-				DefaultFunc: schema.EnvDefaultFunc("VCD_URL", nil),
-				Description: "The vcd url for vcd API operations.",
+				DefaultFunc: schema.EnvDefaultFunc("VCD_IP", nil),
+				Description: "The vcd IP for vcd API operations.",
 			},
 
 			"vdc": &schema.Schema{
@@ -99,5 +99,6 @@ func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 		InsecureFlag:    d.Get("allow_unverified_ssl").(bool),
 	}
 
-	return config.CreateClient()
+	vcdclient, err := config.CreateClient()
+	return vcdclient, err
 }

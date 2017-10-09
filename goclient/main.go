@@ -45,7 +45,7 @@ func main() {
 	// implementation but is in fact over an RPC connection.
 	kv := raw.(shared.PyVcloudProvider)
 
-	result, err := kv.Login("user1", "Admin!23", "O1")
+	result, err := kv.Login("user1", "Admin!23", "O1", "10.112.83.27")
 
 	if err != nil {
 		fmt.Println("Error:", err.Error())
