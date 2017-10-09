@@ -1,6 +1,7 @@
 package main
 
 import (
+	"./vcd"
     "github.com/hashicorp/terraform/plugin"
     "github.com/hashicorp/terraform/terraform"
 )
