@@ -21,7 +21,7 @@ message TenantCredentials {
   string username = 1;
   string password = 2;
   string org = 3;
-  string href = 4;
+  string ip = 4;
 
 }
 

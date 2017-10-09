@@ -93,11 +93,11 @@ func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 		User:            d.Get("user").(string),
 		Password:        d.Get("password").(string),
 		Org:             d.Get("org").(string),
-		Href:            d.Get("url").(string),
+		Ip:              d.Get("ip").(string),
 		VDC:             d.Get("vdc").(string),
 		MaxRetryTimeout: maxRetryTimeout,
 		InsecureFlag:    d.Get("allow_unverified_ssl").(bool),
 	}
 
-	return config.Client()
+	return config.CreateClient()
 }

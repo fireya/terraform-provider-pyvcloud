@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='pyvcloudprovider.proto',
   package='pyvcloudprovider',
   syntax='proto3',
-  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x10pyvcloudprovider\"D\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t2a\n\x10PyVcloudProvider\x12M\n\x05Login\x12#.pyvcloudprovider.TenantCredentials\x1a\x1d.pyvcloudprovider.LoginResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x10pyvcloudprovider\"P\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t2a\n\x10PyVcloudProvider\x12M\n\x05Login\x12#.pyvcloudprovider.TenantCredentials\x1a\x1d.pyvcloudprovider.LoginResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
 )
 
 
@@ -53,6 +53,13 @@ _TENANTCREDENTIALS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='ip', full_name='pyvcloudprovider.TenantCredentials.ip', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -66,7 +73,7 @@ _TENANTCREDENTIALS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=44,
-  serialized_end=112,
+  serialized_end=124,
 )
 
 
@@ -96,8 +103,8 @@ _LOGINRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=114,
-  serialized_end=142,
+  serialized_start=126,
+  serialized_end=154,
 )
 
 DESCRIPTOR.message_types_by_name['TenantCredentials'] = _TENANTCREDENTIALS
@@ -128,8 +135,8 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=144,
-  serialized_end=241,
+  serialized_start=156,
+  serialized_end=253,
   methods=[
   _descriptor.MethodDescriptor(
     name='Login',
