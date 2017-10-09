@@ -2,8 +2,10 @@ package vcd
 
 import (
 	"fmt"
-	"github.com/davecgh/go-spew/spew"
-	"github.com/golang/glog"
+	"log"
+	"os"
+	//"github.com/davecgh/go-spew/spew"
+	//"github.com/golang/glog"
 	//"github.com/hashicorp/terraform/helper/resource"
 	"github.com/hashicorp/terraform/helper/schema"
 )
@@ -26,6 +28,7 @@ func resourceServer() *schema.Resource {
 }
 
 func resourceServerCreate(d *schema.ResourceData, m interface{}) error {
+	log.SetOutput(os.Stdout)
 	/*	config := Config{
 		User:     d.Get("username").(string),
 		Password: d.Get("password").(string),
@@ -38,12 +41,15 @@ func resourceServerCreate(d *schema.ResourceData, m interface{}) error {
 	//config.Client()
 	vcdClient := m.(*VCDClient)
 
-	spew.Dump(vcdClient)
-	fmt.Println("log ==== = = = = = == ************* \n")
-	glog.Info("============ glocg ")
-	//vcdClient.plugin.Client.IsPresentCatalgue("c1")
-	return fmt.Errorf("Unable to find edge gateway: %#v", vcdClient)
-	//	return nil
+	//spew.Dump(vcdClient)
+	//glog.Info("============ glocg ")
+	provider := vcdClient.getProvider()
+	provider.Login("user1", "Admin!23", "O1", "10.112.83.27")
+	res, err := vcdClient.getProvider().IsPresentCatalog("c1")
+	fmt.Println(res)
+	fmt.Println(err)
+	return fmt.Errorf("Unable to find edge gateway: %#v", res)
+	return nil
 }
 
 func resourceServerRead(d *schema.ResourceData, m interface{}) error {

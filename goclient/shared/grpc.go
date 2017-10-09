@@ -44,5 +44,5 @@ func (m *GRPCServer) IsPresentCatalog(
 	ctx context.Context,
 	req *pyvcloudprovider.Catalog) (*pyvcloudprovider.IsPresentCatalogResult, error) {
 	v, err := m.Impl.IsPresentCatalog(ctx, req)
-	return &pyvcloudprovider.IsPresentCatalogResult{IsPresent: v.IsPresent}, err
+	return &pyvcloudprovider.IsPresentCatalogResult{Present: v.Present}, err
 }

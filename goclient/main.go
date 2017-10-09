@@ -47,13 +47,13 @@ func main() {
 
 	lresult, err := kv.Login("user1", "Admin!23", "O1", "10.112.83.27")
 
-	cresult, err := kv.IsPresentCatalogue("c1")
+	cresult, err := kv.IsPresentCatalog("c1")
 
 	if err != nil {
 		fmt.Println("Error:", err.Error())
 		os.Exit(1)
 	}
-	fmt.Println((cresult.IsPresent))
+	fmt.Println((cresult.Present))
 	fmt.Println((lresult))
 
 }

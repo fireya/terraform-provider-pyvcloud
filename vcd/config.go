@@ -24,6 +24,26 @@ type Config struct {
 
 type VCDClient struct {
 	*plugin.Client
+	//	*plugin.GRPCClient
+}
+
+func (v VCDClient) getProvider() shared.PyVcloudProvider {
+
+	rpcClient, err := v.Client.Client()
+	if err != nil {
+		fmt.Println("Error:", err.Error())
+		os.Exit(1)
+	}
+
+	// Request the plugin
+	raw, err := rpcClient.Dispense("PY_PLUGIN")
+	if err != nil {
+		fmt.Println("Error:", err.Error())
+		os.Exit(1)
+	}
+	provider := raw.(shared.PyVcloudProvider)
+	return provider
+
 }
 
 func (c Config) CreateClient() (*VCDClient, error) {
@@ -58,9 +78,9 @@ func (c Config) CreateClient() (*VCDClient, error) {
 
 	// We should have a KV store now! This feels like a normal interface
 	// implementation but is in fact over an RPC connection.
-	kv := raw.(shared.PyVcloudProvider)
+	provider := raw.(shared.PyVcloudProvider)
 
-	result, err := kv.Login(c.User, c.Password, c.Org, c.Ip)
+	result, err := provider.Login(c.User, c.Password, c.Org, c.Ip)
 
 	if err != nil {
 		fmt.Println("Error:", err.Error())

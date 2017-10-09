@@ -25,7 +25,7 @@ def vcdlogin(  host, user, password, org):
 		client.set_credentials(BasicLoginCredentials(user, org, password))
 		x=client._session.headers['x-vcloud-authorization']
 		logging.info("X VCloud "+x)
-		#catalogue.isPresent(client,"c1")
+		#catalog.isPresent(client,"c1")
 		return client;
 	except Exception as e:
 		print('error occured',e)

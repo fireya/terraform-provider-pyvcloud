@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='pyvcloudprovider.proto',
   package='pyvcloudprovider',
   syntax='proto3',
-  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x10pyvcloudprovider\"P\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\"\x17\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\"+\n\x16IsPresentCatalogResult\x12\x11\n\tisPresent\x18\x01 \x01(\x08\x32\xbc\x01\n\x10PyVcloudProvider\x12M\n\x05Login\x12#.pyvcloudprovider.TenantCredentials\x1a\x1d.pyvcloudprovider.LoginResult\"\x00\x12Y\n\x10isPresentCatalog\x12\x19.pyvcloudprovider.Catalog\x1a(.pyvcloudprovider.IsPresentCatalogResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x10pyvcloudprovider\"P\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\"\x17\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\")\n\x16IsPresentCatalogResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\x32\xbc\x01\n\x10PyVcloudProvider\x12M\n\x05Login\x12#.pyvcloudprovider.TenantCredentials\x1a\x1d.pyvcloudprovider.LoginResult\"\x00\x12Y\n\x10isPresentCatalog\x12\x19.pyvcloudprovider.Catalog\x1a(.pyvcloudprovider.IsPresentCatalogResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
 )
 
 
@@ -147,7 +147,7 @@ _ISPRESENTCATALOGRESULT = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='isPresent', full_name='pyvcloudprovider.IsPresentCatalogResult.isPresent', index=0,
+      name='present', full_name='pyvcloudprovider.IsPresentCatalogResult.present', index=0,
       number=1, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -166,7 +166,7 @@ _ISPRESENTCATALOGRESULT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=181,
-  serialized_end=224,
+  serialized_end=222,
 )
 
 DESCRIPTOR.message_types_by_name['TenantCredentials'] = _TENANTCREDENTIALS
@@ -213,8 +213,8 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=227,
-  serialized_end=415,
+  serialized_start=225,
+  serialized_end=413,
   methods=[
   _descriptor.MethodDescriptor(
     name='Login',

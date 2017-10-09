@@ -18,10 +18,10 @@ def isPresent(client,name ):
 		logged_in_org = client.get_org()
         	org = Org(client, org_resource=logged_in_org)
 		result=pyvcloudprovider_pb2.IsPresentCatalogResult()
-                result.isPresent = False
+                result.present = False
 		try:
 			catalog = org.get_catalog(name)
-			result.isPresent = True
+			result.present = True
 		except Exception as e:
 			logging.info(e.message)
 		return result

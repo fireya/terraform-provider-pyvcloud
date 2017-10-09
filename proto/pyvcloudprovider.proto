@@ -35,5 +35,5 @@ message Catalog {
 }
 
 message IsPresentCatalogResult{
-	bool isPresent=1;
+	bool present=1;
 }
