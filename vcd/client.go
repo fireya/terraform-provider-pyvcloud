@@ -3,7 +3,7 @@ package vcd
 import (
 	"fmt"
 	//	"io/ioutil"
-	//"log"
+	"log"
 	"os"
 	"os/exec"
 
@@ -12,7 +12,7 @@ import (
 	"../goclient/shared"
 )
 
-func Login() {
+func CreatClient() (*VCDClient, error) {
 	// We don't want to see the plugin logs.
 	//log.SetOutput(ioutil.Discard)
 	log.SetOutput(os.Stdout)
@@ -53,5 +53,8 @@ func Login() {
 		os.Exit(1)
 	}
 	fmt.Println(string(result.Token))
+
+	vcdclient := &VCDClient{client}
+	return vcdclient, err
 
 }

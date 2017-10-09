@@ -1,9 +1,10 @@
 package vcd
 
-//import (
-//	"fmt"
-//	"net/url"
-//)
+import (
+	"github.com/hashicorp/go-plugin"
+	//	"fmt"
+	//	"net/url"
+)
 
 type Config struct {
 	User            string
@@ -16,11 +17,11 @@ type Config struct {
 }
 
 type VCDClient struct {
+	*plugin.Client
 }
 
 func (c *Config) Client() (*VCDClient, error) {
 
-	vcdclient := &VCDClient{}
-	Login()
-	return vcdclient, nil
+	vcdclient, err := CreatClient()
+	return vcdclient, err
 }
