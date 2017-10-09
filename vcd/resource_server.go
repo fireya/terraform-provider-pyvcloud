@@ -1,6 +1,10 @@
 package vcd
 
 import (
+	"fmt"
+	"github.com/davecgh/go-spew/spew"
+	"github.com/golang/glog"
+	//"github.com/hashicorp/terraform/helper/resource"
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
@@ -12,17 +16,10 @@ func resourceServer() *schema.Resource {
 		Delete: resourceServerDelete,
 
 		Schema: map[string]*schema.Schema{
-			"username": &schema.Schema{
+			"catalog": &schema.Schema{
 				Type:     schema.TypeString,
 				Required: true,
-			},
-			"password": &schema.Schema{
-				Type:     schema.TypeString,
-				Required: true,
-			},
-			"org": &schema.Schema{
-				Type:     schema.TypeString,
-				Required: true,
+				ForceNew: false,
 			},
 		},
 	}
@@ -39,7 +36,14 @@ func resourceServerCreate(d *schema.ResourceData, m interface{}) error {
 		//InsecureFlag:    d.Get("allow_unverified_ssl").(bool),
 	}*/
 	//config.Client()
-	return nil
+	vcdClient := m.(*VCDClient)
+
+	spew.Dump(vcdClient)
+	fmt.Println("log ==== = = = = = == ************* \n")
+	glog.Info("============ glocg ")
+	//vcdClient.plugin.Client.IsPresentCatalgue("c1")
+	return fmt.Errorf("Unable to find edge gateway: %#v", vcdClient)
+	//	return nil
 }
 
 func resourceServerRead(d *schema.ResourceData, m interface{}) error {

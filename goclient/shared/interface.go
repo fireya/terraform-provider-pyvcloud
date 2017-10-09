@@ -21,9 +21,10 @@ var PluginMap = map[string]plugin.Plugin{
 	"PY_PLUGIN": &PyVcloudProviderPlugin{},
 }
 
-// KV is the interface that we're exposing as a plugin.
+// PyVcloudProvider is the interface that we're exposing as a plugin.
 type PyVcloudProvider interface {
 	Login(username string, password string, org string, ip string) (*pyvcloudprovider.LoginResult, error)
+	IsPresentCatalog(name string) (*pyvcloudprovider.IsPresentCatalogResult, error)
 }
 
 // This is the implementation of plugin.Plugin so we can serve/consume this.

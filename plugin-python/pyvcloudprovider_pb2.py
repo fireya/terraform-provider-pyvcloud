@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='pyvcloudprovider.proto',
   package='pyvcloudprovider',
   syntax='proto3',
-  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x10pyvcloudprovider\"P\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t2a\n\x10PyVcloudProvider\x12M\n\x05Login\x12#.pyvcloudprovider.TenantCredentials\x1a\x1d.pyvcloudprovider.LoginResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x10pyvcloudprovider\"P\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\"\x17\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\"+\n\x16IsPresentCatalogResult\x12\x11\n\tisPresent\x18\x01 \x01(\x08\x32\xbc\x01\n\x10PyVcloudProvider\x12M\n\x05Login\x12#.pyvcloudprovider.TenantCredentials\x1a\x1d.pyvcloudprovider.LoginResult\"\x00\x12Y\n\x10isPresentCatalog\x12\x19.pyvcloudprovider.Catalog\x1a(.pyvcloudprovider.IsPresentCatalogResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
 )
 
 
@@ -107,8 +107,72 @@ _LOGINRESULT = _descriptor.Descriptor(
   serialized_end=154,
 )
 
+
+_CATALOG = _descriptor.Descriptor(
+  name='Catalog',
+  full_name='pyvcloudprovider.Catalog',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='pyvcloudprovider.Catalog.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=156,
+  serialized_end=179,
+)
+
+
+_ISPRESENTCATALOGRESULT = _descriptor.Descriptor(
+  name='IsPresentCatalogResult',
+  full_name='pyvcloudprovider.IsPresentCatalogResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='isPresent', full_name='pyvcloudprovider.IsPresentCatalogResult.isPresent', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=181,
+  serialized_end=224,
+)
+
 DESCRIPTOR.message_types_by_name['TenantCredentials'] = _TENANTCREDENTIALS
 DESCRIPTOR.message_types_by_name['LoginResult'] = _LOGINRESULT
+DESCRIPTOR.message_types_by_name['Catalog'] = _CATALOG
+DESCRIPTOR.message_types_by_name['IsPresentCatalogResult'] = _ISPRESENTCATALOGRESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 TenantCredentials = _reflection.GeneratedProtocolMessageType('TenantCredentials', (_message.Message,), dict(
@@ -125,6 +189,20 @@ LoginResult = _reflection.GeneratedProtocolMessageType('LoginResult', (_message.
   ))
 _sym_db.RegisterMessage(LoginResult)
 
+Catalog = _reflection.GeneratedProtocolMessageType('Catalog', (_message.Message,), dict(
+  DESCRIPTOR = _CATALOG,
+  __module__ = 'pyvcloudprovider_pb2'
+  # @@protoc_insertion_point(class_scope:pyvcloudprovider.Catalog)
+  ))
+_sym_db.RegisterMessage(Catalog)
+
+IsPresentCatalogResult = _reflection.GeneratedProtocolMessageType('IsPresentCatalogResult', (_message.Message,), dict(
+  DESCRIPTOR = _ISPRESENTCATALOGRESULT,
+  __module__ = 'pyvcloudprovider_pb2'
+  # @@protoc_insertion_point(class_scope:pyvcloudprovider.IsPresentCatalogResult)
+  ))
+_sym_db.RegisterMessage(IsPresentCatalogResult)
+
 
 DESCRIPTOR.has_options = True
 DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), _b('\n\034com.vmware.pyvcloud.providerB\025PyVcloudProviderProtoP\001'))
@@ -135,8 +213,8 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=156,
-  serialized_end=253,
+  serialized_start=227,
+  serialized_end=415,
   methods=[
   _descriptor.MethodDescriptor(
     name='Login',
@@ -145,6 +223,15 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_TENANTCREDENTIALS,
     output_type=_LOGINRESULT,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='isPresentCatalog',
+    full_name='pyvcloudprovider.PyVcloudProvider.isPresentCatalog',
+    index=1,
+    containing_service=None,
+    input_type=_CATALOG,
+    output_type=_ISPRESENTCATALOGRESULT,
     options=None,
   ),
 ])
@@ -177,6 +264,11 @@ try:
           request_serializer=TenantCredentials.SerializeToString,
           response_deserializer=LoginResult.FromString,
           )
+      self.isPresentCatalog = channel.unary_unary(
+          '/pyvcloudprovider.PyVcloudProvider/isPresentCatalog',
+          request_serializer=Catalog.SerializeToString,
+          response_deserializer=IsPresentCatalogResult.FromString,
+          )
 
 
   class PyVcloudProviderServicer(object):
@@ -190,6 +282,13 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
+    def isPresentCatalog(self, request, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
 
   def add_PyVcloudProviderServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -197,6 +296,11 @@ try:
             servicer.Login,
             request_deserializer=TenantCredentials.FromString,
             response_serializer=LoginResult.SerializeToString,
+        ),
+        'isPresentCatalog': grpc.unary_unary_rpc_method_handler(
+            servicer.isPresentCatalog,
+            request_deserializer=Catalog.FromString,
+            response_serializer=IsPresentCatalogResult.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -216,6 +320,10 @@ try:
       """Tenant Loging to VCD  
       """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def isPresentCatalog(self, request, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
   class BetaPyVcloudProviderStub(object):
@@ -231,6 +339,11 @@ try:
       """
       raise NotImplementedError()
     Login.future = None
+    def isPresentCatalog(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      # missing associated documentation comment in .proto file
+      pass
+      raise NotImplementedError()
+    isPresentCatalog.future = None
 
 
   def beta_create_PyVcloudProvider_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -241,12 +354,15 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
       ('pyvcloudprovider.PyVcloudProvider', 'Login'): TenantCredentials.FromString,
+      ('pyvcloudprovider.PyVcloudProvider', 'isPresentCatalog'): Catalog.FromString,
     }
     response_serializers = {
       ('pyvcloudprovider.PyVcloudProvider', 'Login'): LoginResult.SerializeToString,
+      ('pyvcloudprovider.PyVcloudProvider', 'isPresentCatalog'): IsPresentCatalogResult.SerializeToString,
     }
     method_implementations = {
       ('pyvcloudprovider.PyVcloudProvider', 'Login'): face_utilities.unary_unary_inline(servicer.Login),
+      ('pyvcloudprovider.PyVcloudProvider', 'isPresentCatalog'): face_utilities.unary_unary_inline(servicer.isPresentCatalog),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
     return beta_implementations.server(method_implementations, options=server_options)
@@ -260,12 +376,15 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
       ('pyvcloudprovider.PyVcloudProvider', 'Login'): TenantCredentials.SerializeToString,
+      ('pyvcloudprovider.PyVcloudProvider', 'isPresentCatalog'): Catalog.SerializeToString,
     }
     response_deserializers = {
       ('pyvcloudprovider.PyVcloudProvider', 'Login'): LoginResult.FromString,
+      ('pyvcloudprovider.PyVcloudProvider', 'isPresentCatalog'): IsPresentCatalogResult.FromString,
     }
     cardinalities = {
       'Login': cardinality.Cardinality.UNARY_UNARY,
+      'isPresentCatalog': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
     return beta_implementations.dynamic_stub(channel, 'pyvcloudprovider.PyVcloudProvider', cardinalities, options=stub_options)

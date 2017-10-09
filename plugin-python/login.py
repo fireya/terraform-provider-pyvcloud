@@ -4,11 +4,14 @@ from pyvcloud.vcd.client import BasicLoginCredentials
 from pyvcloud.vcd.client import Client
 from pyvcloud.vcd.client import EntityType
 from pyvcloud.vcd.client import get_links
+import pyvcloudprovider_pb2_grpc
+import pyvcloudprovider_pb2
 import requests
 import logging
+import catalog
 
 def vcdlogin(  host, user, password, org):
-	logging.basicConfig(filename='vcdclient.log',level=logging.DEBUG)
+	logging.basicConfig(level=logging.DEBUG)
 	logging.info("login called")
  	client = Client(host,
                     api_version="27.0",
@@ -22,12 +25,10 @@ def vcdlogin(  host, user, password, org):
 		client.set_credentials(BasicLoginCredentials(user, org, password))
 		x=client._session.headers['x-vcloud-authorization']
 		logging.info("X VCloud "+x)
-		#logged_in_org = client.get_org()
-		#print('ok got org')
-		#logging.info(logged_in_org)
+		#catalogue.isPresent(client,"c1")
 		return client;
 	except Exception as e:
-		print('error occured')
+		print('error occured',e)
 
 
 if __name__ == '__main__':

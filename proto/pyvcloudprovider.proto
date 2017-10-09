@@ -12,7 +12,7 @@ package pyvcloudprovider;
 service PyVcloudProvider {
 //Tenant Loging to VCD  
   rpc Login(TenantCredentials) returns (LoginResult) {}
-
+  rpc isPresentCatalog(Catalog ) returns (IsPresentCatalogResult) {}
   
 }
 
@@ -25,6 +25,15 @@ message TenantCredentials {
 
 }
 
+
 message LoginResult{
 	string token = 1;
+}
+
+message Catalog {
+	string name = 1;
+}
+
+message IsPresentCatalogResult{
+	bool isPresent=1;
 }

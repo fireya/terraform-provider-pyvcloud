@@ -32,3 +32,17 @@ func (m *GRPCServer) Login(
 	v, err := m.Impl.Login(ctx, req)
 	return &pyvcloudprovider.LoginResult{Token: v.Token}, err
 }
+
+func (m *GRPCClient) IsPresentCatalog(name string) (*pyvcloudprovider.IsPresentCatalogResult, error) {
+	result, err := m.client.IsPresentCatalog(context.Background(), &pyvcloudprovider.Catalog{
+		Name: name,
+	})
+	return result, err
+}
+
+func (m *GRPCServer) IsPresentCatalog(
+	ctx context.Context,
+	req *pyvcloudprovider.Catalog) (*pyvcloudprovider.IsPresentCatalogResult, error) {
+	v, err := m.Impl.IsPresentCatalog(ctx, req)
+	return &pyvcloudprovider.IsPresentCatalogResult{IsPresent: v.IsPresent}, err
+}

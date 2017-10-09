@@ -3,6 +3,8 @@ package vcd
 import (
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
+	"log"
+	"os"
 )
 
 // Provider returns a terraform.ResourceProvider.
@@ -83,6 +85,8 @@ func Provider() terraform.ResourceProvider {
 
 func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 	maxRetryTimeout := d.Get("max_retry_timeout").(int)
+
+	log.SetOutput(os.Stdout)
 
 	// TODO: Deprecated, remove in next major release
 	if v, ok := d.GetOk("maxRetryTimeout"); ok {

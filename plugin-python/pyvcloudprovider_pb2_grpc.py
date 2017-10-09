@@ -19,6 +19,11 @@ class PyVcloudProviderStub(object):
         request_serializer=pyvcloudprovider__pb2.TenantCredentials.SerializeToString,
         response_deserializer=pyvcloudprovider__pb2.LoginResult.FromString,
         )
+    self.isPresentCatalog = channel.unary_unary(
+        '/pyvcloudprovider.PyVcloudProvider/isPresentCatalog',
+        request_serializer=pyvcloudprovider__pb2.Catalog.SerializeToString,
+        response_deserializer=pyvcloudprovider__pb2.IsPresentCatalogResult.FromString,
+        )
 
 
 class PyVcloudProviderServicer(object):
@@ -32,6 +37,13 @@ class PyVcloudProviderServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def isPresentCatalog(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_PyVcloudProviderServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -39,6 +51,11 @@ def add_PyVcloudProviderServicer_to_server(servicer, server):
           servicer.Login,
           request_deserializer=pyvcloudprovider__pb2.TenantCredentials.FromString,
           response_serializer=pyvcloudprovider__pb2.LoginResult.SerializeToString,
+      ),
+      'isPresentCatalog': grpc.unary_unary_rpc_method_handler(
+          servicer.isPresentCatalog,
+          request_deserializer=pyvcloudprovider__pb2.Catalog.FromString,
+          response_serializer=pyvcloudprovider__pb2.IsPresentCatalogResult.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

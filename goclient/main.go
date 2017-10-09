@@ -45,12 +45,15 @@ func main() {
 	// implementation but is in fact over an RPC connection.
 	kv := raw.(shared.PyVcloudProvider)
 
-	result, err := kv.Login("user1", "Admin!23", "O1", "10.112.83.27")
+	lresult, err := kv.Login("user1", "Admin!23", "O1", "10.112.83.27")
+
+	cresult, err := kv.IsPresentCatalogue("c1")
 
 	if err != nil {
 		fmt.Println("Error:", err.Error())
 		os.Exit(1)
 	}
-	fmt.Println(string(result.Token))
+	fmt.Println((cresult.IsPresent))
+	fmt.Println((lresult))
 
 }
