@@ -20,11 +20,12 @@ def vcdlogin(  host, user, password, org):
 	)
 	try:
 		client.set_credentials(BasicLoginCredentials(user, org, password))
-		print("set set_credentials")
-		logged_in_org = client.get_org()
-		print('ok got org')
-		logging.info(logged_in_org)
-
+		x=client._session.headers['x-vcloud-authorization']
+		logging.info("X VCloud "+x)
+		#logged_in_org = client.get_org()
+		#print('ok got org')
+		#logging.info(logged_in_org)
+		return client;
 	except Exception as e:
 		print('error occured')
 

@@ -19,10 +19,10 @@ class PyVcloudProviderServicer(pyvcloudprovider_pb2_grpc.PyVcloudProviderService
     def Login(self, request, context):
         resp = "GOT LOGIN CRED = "+request.username
         resp = resp +" "+ request.password
-	resp = resp +" "+ request.org + " URL "+ request.ip +"  hurra!!!"
+	    resp = resp +" "+ request.org + " URL "+ request.ip +"  hurra!!!"
         result = pyvcloudprovider_pb2.LoginResult()
         result.token = resp
-	login.vcdlogin( request.ip,request.username,request.password,request.org)
+	    login.vcdlogin( request.ip,request.username,request.password,request.org)
         return result
 
     
