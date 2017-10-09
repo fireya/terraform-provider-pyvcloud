@@ -22,6 +22,6 @@ type VCDClient struct {
 
 func (c *Config) Client() (*VCDClient, error) {
 
-	vcdclient, err := CreatClient()
+	vcdclient, err := CreatClient(c)
 	return vcdclient, err
 }

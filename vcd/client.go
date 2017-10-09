@@ -12,7 +12,7 @@ import (
 	"../goclient/shared"
 )
 
-func CreatClient() (*VCDClient, error) {
+func (c *Config) CreatClient() (*VCDClient, error) {
 	// We don't want to see the plugin logs.
 	//log.SetOutput(ioutil.Discard)
 	log.SetOutput(os.Stdout)
@@ -46,7 +46,7 @@ func CreatClient() (*VCDClient, error) {
 	// implementation but is in fact over an RPC connection.
 	kv := raw.(shared.PyVcloudProvider)
 
-	result, err := kv.Login("user1", "Admin!23", "O1")
+	result, err := kv.Login(c.User, c.Password, c.Org,c.Href)
 
 	if err != nil {
 		fmt.Println("Error:", err.Error())
