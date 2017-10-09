@@ -5,11 +5,11 @@ from pyvcloud.vcd.client import Client
 from pyvcloud.vcd.client import EntityType
 from pyvcloud.vcd.client import get_links
 import requests
-
+import logging
 
 def vcdlogin(  host, user, password, org):
-
-	print("login called")
+	logging.basicConfig(filename='vcdclient.log',level=logging.DEBUG)
+	logging.info("login called")
  	client = Client(host,
                     api_version="27.0",
                     verify_ssl_certs=False,
@@ -23,7 +23,7 @@ def vcdlogin(  host, user, password, org):
 		print("set set_credentials")
 		logged_in_org = client.get_org()
 		print('ok got org')
-		print(logged_in_org)
+		logging.info(logged_in_org)
 
 	except Exception as e:
 		print('error occured')
