@@ -12,10 +12,10 @@ provider "pyvcloudvcd" {
 
 
 
-resource "pyvcloudvcd_server" "my-server" {
-
-	catalog = "c1"
+resource "pyvcloudvcd_catalog" "cata1" {
+	name    = "c1"
+	description = "desc"
+	shared  = "true"
 
 }
-
 

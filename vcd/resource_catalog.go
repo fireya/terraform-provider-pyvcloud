@@ -10,15 +10,25 @@ import (
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
-func resourceServer() *schema.Resource {
+func resourceCatalog() *schema.Resource {
 	return &schema.Resource{
-		Create: resourceServerCreate,
-		Read:   resourceServerRead,
-		Update: resourceServerUpdate,
-		Delete: resourceServerDelete,
+		Create: resourceCatalogCreate,
+		Read:   resourceCatalogRead,
+		Update: resourceCatalogUpdate,
+		Delete: resourceCatalogDelete,
 
 		Schema: map[string]*schema.Schema{
-			"catalog": &schema.Schema{
+			"name": &schema.Schema{
+				Type:     schema.TypeString,
+				Required: true,
+				ForceNew: true,
+			},
+			"description": &schema.Schema{
+				Type:     schema.TypeString,
+				Required: true,
+				ForceNew: false,
+			},
+			"shared": &schema.Schema{
 				Type:     schema.TypeString,
 				Required: true,
 				ForceNew: false,
@@ -27,7 +37,7 @@ func resourceServer() *schema.Resource {
 	}
 }
 
-func resourceServerCreate(d *schema.ResourceData, m interface{}) error {
+func resourceCatalogCreate(d *schema.ResourceData, m interface{}) error {
 	log.SetOutput(os.Stdout)
 	/*	config := Config{
 		User:     d.Get("username").(string),
@@ -52,14 +62,14 @@ func resourceServerCreate(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceServerRead(d *schema.ResourceData, m interface{}) error {
+func resourceCatalogRead(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceServerUpdate(d *schema.ResourceData, m interface{}) error {
+func resourceCatalogUpdate(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceServerDelete(d *schema.ResourceData, m interface{}) error {
+func resourceCatalogDelete(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
