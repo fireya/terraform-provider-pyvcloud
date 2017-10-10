@@ -15,3 +15,4 @@ export PATH
 export GOROOT=/opt/go
 export PATH=$GOROOT/bin:/opt:/opt/protobuf/src/:/root/go/bin/:$PATH
 export PY_PLUGIN="python /home/terraform-provider-pyvcloud/plugin-python/plugin.py"
+cd /home/terraform-provider-pyvcloud/

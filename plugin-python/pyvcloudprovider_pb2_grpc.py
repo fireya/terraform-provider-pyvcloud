@@ -24,6 +24,16 @@ class PyVcloudProviderStub(object):
         request_serializer=pyvcloudprovider__pb2.Catalog.SerializeToString,
         response_deserializer=pyvcloudprovider__pb2.IsPresentCatalogResult.FromString,
         )
+    self.CreateCatalog = channel.unary_unary(
+        '/pyvcloudprovider.PyVcloudProvider/CreateCatalog',
+        request_serializer=pyvcloudprovider__pb2.Catalog.SerializeToString,
+        response_deserializer=pyvcloudprovider__pb2.CreateCatalogResult.FromString,
+        )
+    self.DeleteCatalog = channel.unary_unary(
+        '/pyvcloudprovider.PyVcloudProvider/DeleteCatalog',
+        request_serializer=pyvcloudprovider__pb2.Catalog.SerializeToString,
+        response_deserializer=pyvcloudprovider__pb2.DeleteCatalogResult.FromString,
+        )
 
 
 class PyVcloudProviderServicer(object):
@@ -44,6 +54,20 @@ class PyVcloudProviderServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def CreateCatalog(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def DeleteCatalog(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_PyVcloudProviderServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -56,6 +80,16 @@ def add_PyVcloudProviderServicer_to_server(servicer, server):
           servicer.isPresentCatalog,
           request_deserializer=pyvcloudprovider__pb2.Catalog.FromString,
           response_serializer=pyvcloudprovider__pb2.IsPresentCatalogResult.SerializeToString,
+      ),
+      'CreateCatalog': grpc.unary_unary_rpc_method_handler(
+          servicer.CreateCatalog,
+          request_deserializer=pyvcloudprovider__pb2.Catalog.FromString,
+          response_serializer=pyvcloudprovider__pb2.CreateCatalogResult.SerializeToString,
+      ),
+      'DeleteCatalog': grpc.unary_unary_rpc_method_handler(
+          servicer.DeleteCatalog,
+          request_deserializer=pyvcloudprovider__pb2.Catalog.FromString,
+          response_serializer=pyvcloudprovider__pb2.DeleteCatalogResult.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

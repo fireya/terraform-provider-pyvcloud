@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='pyvcloudprovider.proto',
   package='pyvcloudprovider',
   syntax='proto3',
-  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x10pyvcloudprovider\"P\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\"\x17\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\")\n\x16IsPresentCatalogResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\x32\xbc\x01\n\x10PyVcloudProvider\x12M\n\x05Login\x12#.pyvcloudprovider.TenantCredentials\x1a\x1d.pyvcloudprovider.LoginResult\"\x00\x12Y\n\x10isPresentCatalog\x12\x19.pyvcloudprovider.Catalog\x1a(.pyvcloudprovider.IsPresentCatalogResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x10pyvcloudprovider\"P\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\";\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\r\n\x05share\x18\x03 \x01(\x08\")\n\x16IsPresentCatalogResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\"&\n\x13\x43reateCatalogResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"&\n\x13\x44\x65leteCatalogResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\x32\xe6\x02\n\x10PyVcloudProvider\x12M\n\x05Login\x12#.pyvcloudprovider.TenantCredentials\x1a\x1d.pyvcloudprovider.LoginResult\"\x00\x12Y\n\x10isPresentCatalog\x12\x19.pyvcloudprovider.Catalog\x1a(.pyvcloudprovider.IsPresentCatalogResult\"\x00\x12S\n\rCreateCatalog\x12\x19.pyvcloudprovider.Catalog\x1a%.pyvcloudprovider.CreateCatalogResult\"\x00\x12S\n\rDeleteCatalog\x12\x19.pyvcloudprovider.Catalog\x1a%.pyvcloudprovider.DeleteCatalogResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
 )
 
 
@@ -122,6 +122,20 @@ _CATALOG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='description', full_name='pyvcloudprovider.Catalog.description', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='share', full_name='pyvcloudprovider.Catalog.share', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -135,7 +149,7 @@ _CATALOG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=156,
-  serialized_end=179,
+  serialized_end=215,
 )
 
 
@@ -165,14 +179,78 @@ _ISPRESENTCATALOGRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=181,
-  serialized_end=222,
+  serialized_start=217,
+  serialized_end=258,
+)
+
+
+_CREATECATALOGRESULT = _descriptor.Descriptor(
+  name='CreateCatalogResult',
+  full_name='pyvcloudprovider.CreateCatalogResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='created', full_name='pyvcloudprovider.CreateCatalogResult.created', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=260,
+  serialized_end=298,
+)
+
+
+_DELETECATALOGRESULT = _descriptor.Descriptor(
+  name='DeleteCatalogResult',
+  full_name='pyvcloudprovider.DeleteCatalogResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='deleted', full_name='pyvcloudprovider.DeleteCatalogResult.deleted', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=300,
+  serialized_end=338,
 )
 
 DESCRIPTOR.message_types_by_name['TenantCredentials'] = _TENANTCREDENTIALS
 DESCRIPTOR.message_types_by_name['LoginResult'] = _LOGINRESULT
 DESCRIPTOR.message_types_by_name['Catalog'] = _CATALOG
 DESCRIPTOR.message_types_by_name['IsPresentCatalogResult'] = _ISPRESENTCATALOGRESULT
+DESCRIPTOR.message_types_by_name['CreateCatalogResult'] = _CREATECATALOGRESULT
+DESCRIPTOR.message_types_by_name['DeleteCatalogResult'] = _DELETECATALOGRESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 TenantCredentials = _reflection.GeneratedProtocolMessageType('TenantCredentials', (_message.Message,), dict(
@@ -203,6 +281,20 @@ IsPresentCatalogResult = _reflection.GeneratedProtocolMessageType('IsPresentCata
   ))
 _sym_db.RegisterMessage(IsPresentCatalogResult)
 
+CreateCatalogResult = _reflection.GeneratedProtocolMessageType('CreateCatalogResult', (_message.Message,), dict(
+  DESCRIPTOR = _CREATECATALOGRESULT,
+  __module__ = 'pyvcloudprovider_pb2'
+  # @@protoc_insertion_point(class_scope:pyvcloudprovider.CreateCatalogResult)
+  ))
+_sym_db.RegisterMessage(CreateCatalogResult)
+
+DeleteCatalogResult = _reflection.GeneratedProtocolMessageType('DeleteCatalogResult', (_message.Message,), dict(
+  DESCRIPTOR = _DELETECATALOGRESULT,
+  __module__ = 'pyvcloudprovider_pb2'
+  # @@protoc_insertion_point(class_scope:pyvcloudprovider.DeleteCatalogResult)
+  ))
+_sym_db.RegisterMessage(DeleteCatalogResult)
+
 
 DESCRIPTOR.has_options = True
 DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), _b('\n\034com.vmware.pyvcloud.providerB\025PyVcloudProviderProtoP\001'))
@@ -213,8 +305,8 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=225,
-  serialized_end=413,
+  serialized_start=341,
+  serialized_end=699,
   methods=[
   _descriptor.MethodDescriptor(
     name='Login',
@@ -232,6 +324,24 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_CATALOG,
     output_type=_ISPRESENTCATALOGRESULT,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='CreateCatalog',
+    full_name='pyvcloudprovider.PyVcloudProvider.CreateCatalog',
+    index=2,
+    containing_service=None,
+    input_type=_CATALOG,
+    output_type=_CREATECATALOGRESULT,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteCatalog',
+    full_name='pyvcloudprovider.PyVcloudProvider.DeleteCatalog',
+    index=3,
+    containing_service=None,
+    input_type=_CATALOG,
+    output_type=_DELETECATALOGRESULT,
     options=None,
   ),
 ])
@@ -269,6 +379,16 @@ try:
           request_serializer=Catalog.SerializeToString,
           response_deserializer=IsPresentCatalogResult.FromString,
           )
+      self.CreateCatalog = channel.unary_unary(
+          '/pyvcloudprovider.PyVcloudProvider/CreateCatalog',
+          request_serializer=Catalog.SerializeToString,
+          response_deserializer=CreateCatalogResult.FromString,
+          )
+      self.DeleteCatalog = channel.unary_unary(
+          '/pyvcloudprovider.PyVcloudProvider/DeleteCatalog',
+          request_serializer=Catalog.SerializeToString,
+          response_deserializer=DeleteCatalogResult.FromString,
+          )
 
 
   class PyVcloudProviderServicer(object):
@@ -289,6 +409,20 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
+    def CreateCatalog(self, request, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def DeleteCatalog(self, request, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
 
   def add_PyVcloudProviderServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -301,6 +435,16 @@ try:
             servicer.isPresentCatalog,
             request_deserializer=Catalog.FromString,
             response_serializer=IsPresentCatalogResult.SerializeToString,
+        ),
+        'CreateCatalog': grpc.unary_unary_rpc_method_handler(
+            servicer.CreateCatalog,
+            request_deserializer=Catalog.FromString,
+            response_serializer=CreateCatalogResult.SerializeToString,
+        ),
+        'DeleteCatalog': grpc.unary_unary_rpc_method_handler(
+            servicer.DeleteCatalog,
+            request_deserializer=Catalog.FromString,
+            response_serializer=DeleteCatalogResult.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -324,6 +468,14 @@ try:
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def CreateCatalog(self, request, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def DeleteCatalog(self, request, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
   class BetaPyVcloudProviderStub(object):
@@ -344,6 +496,16 @@ try:
       pass
       raise NotImplementedError()
     isPresentCatalog.future = None
+    def CreateCatalog(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      # missing associated documentation comment in .proto file
+      pass
+      raise NotImplementedError()
+    CreateCatalog.future = None
+    def DeleteCatalog(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      # missing associated documentation comment in .proto file
+      pass
+      raise NotImplementedError()
+    DeleteCatalog.future = None
 
 
   def beta_create_PyVcloudProvider_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -353,14 +515,20 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
+      ('pyvcloudprovider.PyVcloudProvider', 'CreateCatalog'): Catalog.FromString,
+      ('pyvcloudprovider.PyVcloudProvider', 'DeleteCatalog'): Catalog.FromString,
       ('pyvcloudprovider.PyVcloudProvider', 'Login'): TenantCredentials.FromString,
       ('pyvcloudprovider.PyVcloudProvider', 'isPresentCatalog'): Catalog.FromString,
     }
     response_serializers = {
+      ('pyvcloudprovider.PyVcloudProvider', 'CreateCatalog'): CreateCatalogResult.SerializeToString,
+      ('pyvcloudprovider.PyVcloudProvider', 'DeleteCatalog'): DeleteCatalogResult.SerializeToString,
       ('pyvcloudprovider.PyVcloudProvider', 'Login'): LoginResult.SerializeToString,
       ('pyvcloudprovider.PyVcloudProvider', 'isPresentCatalog'): IsPresentCatalogResult.SerializeToString,
     }
     method_implementations = {
+      ('pyvcloudprovider.PyVcloudProvider', 'CreateCatalog'): face_utilities.unary_unary_inline(servicer.CreateCatalog),
+      ('pyvcloudprovider.PyVcloudProvider', 'DeleteCatalog'): face_utilities.unary_unary_inline(servicer.DeleteCatalog),
       ('pyvcloudprovider.PyVcloudProvider', 'Login'): face_utilities.unary_unary_inline(servicer.Login),
       ('pyvcloudprovider.PyVcloudProvider', 'isPresentCatalog'): face_utilities.unary_unary_inline(servicer.isPresentCatalog),
     }
@@ -375,14 +543,20 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
+      ('pyvcloudprovider.PyVcloudProvider', 'CreateCatalog'): Catalog.SerializeToString,
+      ('pyvcloudprovider.PyVcloudProvider', 'DeleteCatalog'): Catalog.SerializeToString,
       ('pyvcloudprovider.PyVcloudProvider', 'Login'): TenantCredentials.SerializeToString,
       ('pyvcloudprovider.PyVcloudProvider', 'isPresentCatalog'): Catalog.SerializeToString,
     }
     response_deserializers = {
+      ('pyvcloudprovider.PyVcloudProvider', 'CreateCatalog'): CreateCatalogResult.FromString,
+      ('pyvcloudprovider.PyVcloudProvider', 'DeleteCatalog'): DeleteCatalogResult.FromString,
       ('pyvcloudprovider.PyVcloudProvider', 'Login'): LoginResult.FromString,
       ('pyvcloudprovider.PyVcloudProvider', 'isPresentCatalog'): IsPresentCatalogResult.FromString,
     }
     cardinalities = {
+      'CreateCatalog': cardinality.Cardinality.UNARY_UNARY,
+      'DeleteCatalog': cardinality.Cardinality.UNARY_UNARY,
       'Login': cardinality.Cardinality.UNARY_UNARY,
       'isPresentCatalog': cardinality.Cardinality.UNARY_UNARY,
     }

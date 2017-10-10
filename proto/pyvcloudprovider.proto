@@ -11,9 +11,11 @@ package pyvcloudprovider;
 // Interface exported by the server.
 service PyVcloudProvider {
 //Tenant Loging to VCD  
-  rpc Login(TenantCredentials) returns (LoginResult) {}
-  rpc isPresentCatalog(Catalog ) returns (IsPresentCatalogResult) {}
-  
+  rpc Login(TenantCredentials) returns ( LoginResult ) {}
+  rpc isPresentCatalog (  Catalog ) returns ( IsPresentCatalogResult ) {}
+  rpc CreateCatalog ( Catalog ) returns ( CreateCatalogResult )  {}
+  rpc DeleteCatalog ( Catalog ) returns ( DeleteCatalogResult )  {}
+
 }
 
 //Tenant VCD crendentials
@@ -32,8 +34,19 @@ message LoginResult{
 
 message Catalog {
 	string name = 1;
+	string description = 2;
+	bool share = 3;
 }
 
 message IsPresentCatalogResult{
+
 	bool present=1;
+}
+
+message CreateCatalogResult{
+	bool created = 1;
+}
+
+message DeleteCatalogResult{
+        bool deleted = 1;
 }

@@ -24,8 +24,19 @@ def vcdlogin(  host, user, password, org):
 	try:
 		client.set_credentials(BasicLoginCredentials(user, org, password))
 		x=client._session.headers['x-vcloud-authorization']
-		logging.info("X VCloud "+x)
-#		catalog.create(client,"c2","c2desc")
+		logging.info(" =====  X VCloud ========\n  \n"+x + "\n \n")
+
+
+		logging.info( str( catalog.isPresent(client,"c2").present) + "  ***********  \n ===== is presen  \n ");
+
+		res=catalog.create(client,"c3","c2UPD")
+
+		logging.info(" is create ===== \n \n "+ str(res.created)+ "\n \n ")
+
+
+		logging.info(" Delete  ===== \n \n "+ str(catalog.delete(client,"c3").deleted)+ "\n \n ")
+		logging.info(" Delete  ===== \n \n "+ str(catalog.delete(client,"c4").deleted)+ "\n \n ")
+
 		return client;
 	except Exception as e:
 		print('error occured',e)

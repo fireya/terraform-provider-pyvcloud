@@ -11,8 +11,7 @@ import requests
 import logging
 
 def isPresent(client,name ):
-	logging.basicConfig(filename='catalogue.log',level=logging.DEBUG)
-	logging.info("isPrsent called")
+	logging.debug("=== isPresent called === \n")
 
 	try:
 		logged_in_org = client.get_org()
@@ -23,12 +22,57 @@ def isPresent(client,name ):
 			catalog = org.get_catalog(name)
 			result.present = True
 		except Exception as e:
-			logging.info(e.message)
+			logging.info("catalog is not present")
 		return result
 
 	except Exception as e:
-		print('error occured',e)
+		logging.warn("error occured",e)
 
 
-if __name__ == '__main__':
-    vcdlogin("10.112.83.27","user1","Admin!23","O1");
+def create(client, name , description):
+        logging.debug("=== create catalog called === \n")
+
+        try:
+                logged_in_org = client.get_org()
+                org = Org(client, org_resource=logged_in_org)
+                result=pyvcloudprovider_pb2.CreateCatalogResult()
+                result.created = False
+                try:
+                        catalog = org.create_catalog(name,description)
+                        result.created = True
+                except Exception as e:
+                        logging.info("\n Not Created catalog ["+name+"]")
+                return result
+
+        except Exception as e:
+                logging.warn("error occured",e)
+
+
+def delete(client, name ):
+        logging.debug("=== delete catalog called === \n")
+
+        try:
+                logged_in_org = client.get_org()
+                org = Org(client, org_resource=logged_in_org)
+                result=pyvcloudprovider_pb2.DeleteCatalogResult()
+                result.deleted = False
+                try:
+                        catalog = org.delete_catalog(name)
+                        result.deleted = True
+                except Exception as e:
+                        logging.info("\n Not Deleted  catalog ["+name+"]")
+                return result
+
+        except Exception as e:
+                logging.warn("error occured",e)
+
+
+
+
+
+
+
+
+
+
+
