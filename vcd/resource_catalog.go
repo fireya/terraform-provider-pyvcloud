@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	//"github.com/davecgh/go-spew/spew"
+	"github.com/hashicorp/logutils"
 	//"github.com/golang/glog"
 	//"github.com/hashicorp/terraform/helper/resource"
 	"github.com/hashicorp/terraform/helper/schema"
@@ -63,7 +64,15 @@ func resourceCatalogCreate(d *schema.ResourceData, m interface{}) error {
 
 func resourceCatalogRead(d *schema.ResourceData, m interface{}) error {
 
-	log.Println("[INFO] ======================== resource **********************")
+	filter := &logutils.LevelFilter{
+		Levels:   []logutils.LogLevel{"DEBUG", "WARN", "ERROR"},
+		MinLevel: logutils.LogLevel("DEBUG"),
+		Writer:   os.Stderr,
+	}
+	log.SetOutput(filter)
+
+	log.Print("[INFO] ========================readingres resource======= \n\n\n\n\n\n")
+
 	cname := d.Get("name").(string)
 
 	vcdClient := m.(*VCDClient)

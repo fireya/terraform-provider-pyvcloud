@@ -11,6 +11,7 @@ import requests
 import logging
 
 def isPresent(client,name ):
+	logging.basicConfig(level=logging.DEBUG)
 	logging.debug("=== isPresent called === \n")
 
 	try:

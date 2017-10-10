@@ -48,7 +48,7 @@ func main() {
 	lresult, err := kv.Login("user1", "Admin!23", "O1", "10.112.83.27")
 
 	cresult, err := kv.IsPresentCatalog("c1")
-
+	log.Printf("[INFO] ======================== resource======= \n\n\n\n\n\n")
 	if cresult.Present {
 		fmt.Println("=======================  ppp resent ")
 	}

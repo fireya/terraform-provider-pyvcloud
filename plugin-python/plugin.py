@@ -12,7 +12,7 @@ from grpc_health.v1.health import HealthServicer
 from grpc_health.v1 import health_pb2, health_pb2_grpc
 
 import login
-
+import logging
 import catalog
 from pyvcloud.vcd.org import Org
 
@@ -42,6 +42,7 @@ class PyVcloudProviderServicer(pyvcloudprovider_pb2_grpc.PyVcloudProviderService
 
 def serve():
     # We need to build a health service to work with go-plugin
+    logging.basicConfig(level=logging.DEBUG)
     health = HealthServicer()
     health.set("plugin", health_pb2.HealthCheckResponse.ServingStatus.Value('SERVING'))
 
