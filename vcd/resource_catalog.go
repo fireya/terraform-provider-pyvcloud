@@ -2,6 +2,7 @@ package vcd
 
 import (
 	"fmt"
+	//"github.com/hashicorp/terraform/helper/logging"
 	"log"
 	"os"
 	//"github.com/davecgh/go-spew/spew"
@@ -62,8 +63,7 @@ func resourceCatalogCreate(d *schema.ResourceData, m interface{}) error {
 
 func resourceCatalogRead(d *schema.ResourceData, m interface{}) error {
 
-	log.SetOutput(os.Stdout)
-
+	log.Println("[INFO] ======================== resource **********************")
 	cname := d.Get("name").(string)
 
 	vcdClient := m.(*VCDClient)

@@ -1,5 +1,6 @@
-variable "org_network" {default="V2Net2"}
-variable "edge_gw" {default="EG2"}
+
+# terraform
+
 provider "pyvcloudvcd" {
   user                 = "user1"
   password             = "Admin!23"
