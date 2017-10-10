@@ -29,7 +29,7 @@ func resourceCatalog() *schema.Resource {
 				ForceNew: false,
 			},
 			"shared": &schema.Schema{
-				Type:     schema.TypeString,
+				Type:     schema.TypeBool,
 				Required: true,
 				ForceNew: false,
 			},
@@ -39,31 +39,51 @@ func resourceCatalog() *schema.Resource {
 
 func resourceCatalogCreate(d *schema.ResourceData, m interface{}) error {
 	log.SetOutput(os.Stdout)
-	/*	config := Config{
-		User:     d.Get("username").(string),
-		Password: d.Get("password").(string),
-		Org:      d.Get("org").(string),
-		//Href:            d.Get("url").(string),
-		//VDC:             d.Get("vdc").(string),
-		//MaxRetryTimeout: maxRetryTimeout,
-		//InsecureFlag:    d.Get("allow_unverified_ssl").(bool),
-	}*/
-	//config.Client()
+	fmt.Printf("\n\n  === resourceCatalogCreate ===========================================\n\n")
+	cname := d.Get("name").(string)
+	desc := d.Get("description").(string)
+	shared := d.Get("shared").(bool)
+
 	vcdClient := m.(*VCDClient)
 
-	//spew.Dump(vcdClient)
-	//glog.Info("============ glocg ")
 	provider := vcdClient.getProvider()
-	//provider.Login("user1", "Admin!23", "O1", "10.112.83.27")
-	res, err := provider.IsPresentCatalog("c1")
-	fmt.Println(res)
-	fmt.Println(err)
-	//return fmt.Errorf("Unable to find edge gateway: %#v", res)
+
+	res, err := provider.CreateCatalog(cname, desc, shared)
+
+	if err != nil {
+		return fmt.Errorf("Error Creating catalog :%v %#v", cname, err)
+	}
+	if res.Created {
+		fmt.Printf("catalog %v  created  ================ ", cname)
+		d.SetId(cname)
+	}
 	return nil
 }
 
 func resourceCatalogRead(d *schema.ResourceData, m interface{}) error {
+
+	log.SetOutput(os.Stdout)
+
+	cname := d.Get("name").(string)
+
+	vcdClient := m.(*VCDClient)
+
+	provider := vcdClient.getProvider()
+
+	res, err := provider.IsPresentCatalog(cname)
+	if err != nil {
+		return fmt.Errorf("Error checking resourceCatalogRead  %#v", err)
+	}
+	if res.Present {
+		fmt.Printf("catalog %v is present / setting state", cname)
+		d.SetId(cname)
+	} else {
+		// resource catalog not present / clear id for recreate
+		d.SetId("")
+	}
+	d.Set("name", cname)
 	return nil
+
 }
 
 func resourceCatalogUpdate(d *schema.ResourceData, m interface{}) error {
@@ -71,5 +91,20 @@ func resourceCatalogUpdate(d *schema.ResourceData, m interface{}) error {
 }
 
 func resourceCatalogDelete(d *schema.ResourceData, m interface{}) error {
+
+	log.SetOutput(os.Stdout)
+	fmt.Printf("\n\n  === resourceCatalogDelete ===========================================\n\n")
+	cname := d.Get("name").(string)
+
+	vcdClient := m.(*VCDClient)
+
+	provider := vcdClient.getProvider()
+
+	_, err := provider.DeleteCatalog(cname)
+
+	if err != nil {
+		return fmt.Errorf("Error Creating catalog :%v %#v", cname, err)
+	}
+
 	return nil
 }

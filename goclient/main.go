@@ -48,6 +48,10 @@ func main() {
 	lresult, err := kv.Login("user1", "Admin!23", "O1", "10.112.83.27")
 
 	cresult, err := kv.IsPresentCatalog("c1")
+
+	if cresult.Present {
+		fmt.Println("=======================  ppp resent ")
+	}
 	kv.CreateCatalog("c5", "de", false)
 	kv.DeleteCatalog("c5")
 	if err != nil {
