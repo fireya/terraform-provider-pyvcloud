@@ -46,3 +46,33 @@ func (m *GRPCServer) IsPresentCatalog(
 	v, err := m.Impl.IsPresentCatalog(ctx, req)
 	return &pyvcloudprovider.IsPresentCatalogResult{Present: v.Present}, err
 }
+
+func (m *GRPCClient) CreateCatalog(name string, description string, shared bool) (*pyvcloudprovider.CreateCatalogResult, error) {
+	result, err := m.client.CreateCatalog(context.Background(), &pyvcloudprovider.Catalog{
+		Name: name,
+	})
+	return result, err
+}
+
+func (m *GRPCServer) CreateCatalog(
+	ctx context.Context,
+	req *pyvcloudprovider.Catalog) (*pyvcloudprovider.CreateCatalogResult, error) {
+	v, err := m.Impl.CreateCatalog(ctx, req)
+	return &pyvcloudprovider.CreateCatalogResult{Created: v.Created}, err
+
+}
+
+func (m *GRPCClient) DeleteCatalog(name string) (*pyvcloudprovider.DeleteCatalogResult, error) {
+	result, err := m.client.DeleteCatalog(context.Background(), &pyvcloudprovider.Catalog{
+		Name: name,
+	})
+	return result, err
+}
+
+func (m *GRPCServer) DeleteCatalog(
+	ctx context.Context,
+	req *pyvcloudprovider.Catalog) (*pyvcloudprovider.DeleteCatalogResult, error) {
+	v, err := m.Impl.DeleteCatalog(ctx, req)
+	return &pyvcloudprovider.DeleteCatalogResult{Deleted: v.Deleted}, err
+
+}

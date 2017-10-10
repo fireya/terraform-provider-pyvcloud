@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='pyvcloudprovider.proto',
   package='pyvcloudprovider',
   syntax='proto3',
-  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x10pyvcloudprovider\"P\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\";\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\r\n\x05share\x18\x03 \x01(\x08\")\n\x16IsPresentCatalogResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\"&\n\x13\x43reateCatalogResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"&\n\x13\x44\x65leteCatalogResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\x32\xe6\x02\n\x10PyVcloudProvider\x12M\n\x05Login\x12#.pyvcloudprovider.TenantCredentials\x1a\x1d.pyvcloudprovider.LoginResult\"\x00\x12Y\n\x10isPresentCatalog\x12\x19.pyvcloudprovider.Catalog\x1a(.pyvcloudprovider.IsPresentCatalogResult\"\x00\x12S\n\rCreateCatalog\x12\x19.pyvcloudprovider.Catalog\x1a%.pyvcloudprovider.CreateCatalogResult\"\x00\x12S\n\rDeleteCatalog\x12\x19.pyvcloudprovider.Catalog\x1a%.pyvcloudprovider.DeleteCatalogResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x10pyvcloudprovider\"P\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\"<\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06shared\x18\x03 \x01(\x08\")\n\x16IsPresentCatalogResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\"&\n\x13\x43reateCatalogResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"&\n\x13\x44\x65leteCatalogResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\x32\xe6\x02\n\x10PyVcloudProvider\x12M\n\x05Login\x12#.pyvcloudprovider.TenantCredentials\x1a\x1d.pyvcloudprovider.LoginResult\"\x00\x12Y\n\x10isPresentCatalog\x12\x19.pyvcloudprovider.Catalog\x1a(.pyvcloudprovider.IsPresentCatalogResult\"\x00\x12S\n\rCreateCatalog\x12\x19.pyvcloudprovider.Catalog\x1a%.pyvcloudprovider.CreateCatalogResult\"\x00\x12S\n\rDeleteCatalog\x12\x19.pyvcloudprovider.Catalog\x1a%.pyvcloudprovider.DeleteCatalogResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
 )
 
 
@@ -130,7 +130,7 @@ _CATALOG = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='share', full_name='pyvcloudprovider.Catalog.share', index=2,
+      name='shared', full_name='pyvcloudprovider.Catalog.shared', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -149,7 +149,7 @@ _CATALOG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=156,
-  serialized_end=215,
+  serialized_end=216,
 )
 
 
@@ -179,8 +179,8 @@ _ISPRESENTCATALOGRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=217,
-  serialized_end=258,
+  serialized_start=218,
+  serialized_end=259,
 )
 
 
@@ -210,8 +210,8 @@ _CREATECATALOGRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=260,
-  serialized_end=298,
+  serialized_start=261,
+  serialized_end=299,
 )
 
 
@@ -241,8 +241,8 @@ _DELETECATALOGRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=300,
-  serialized_end=338,
+  serialized_start=301,
+  serialized_end=339,
 )
 
 DESCRIPTOR.message_types_by_name['TenantCredentials'] = _TENANTCREDENTIALS
@@ -305,8 +305,8 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=341,
-  serialized_end=699,
+  serialized_start=342,
+  serialized_end=700,
   methods=[
   _descriptor.MethodDescriptor(
     name='Login',

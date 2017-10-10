@@ -32,8 +32,13 @@ class PyVcloudProviderServicer(pyvcloudprovider_pb2_grpc.PyVcloudProviderService
         result.token = resp
 	self.client=login.vcdlogin( request.ip,request.username,request.password,request.org)
         return result
-
     
+    def CreateCatalog(self, request, context):
+        return catalog.create(self.client,request.name,request.description)
+	    
+    def DeleteCatalog(self, request, context):
+        return catalog.delete(self.client,request.name)
+
 
 def serve():
     # We need to build a health service to work with go-plugin
