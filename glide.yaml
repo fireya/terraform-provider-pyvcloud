@@ -4,8 +4,9 @@ import:
   subpackages:
   - proto
 - package: github.com/hashicorp/go-plugin
+- package: github.com/hashicorp/logutils
 - package: github.com/hashicorp/terraform
-  version: v0.10.6
+  version: ^0.10.7
   subpackages:
   - helper/schema
   - plugin
@@ -14,4 +15,4 @@ import:
   subpackages:
   - context
 - package: google.golang.org/grpc
-  version: v1.6.0
+  version: ^1.6.0
